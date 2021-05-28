@@ -2,9 +2,10 @@ package com.example.prueba2apmobiles;
 
 import androidx.annotation.NonNull;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Usuario {
+public class Usuario implements Serializable {
     private String usuario, nombre, apellido, departamento;
     private ArrayList<Equipo> equipos = new ArrayList<>();
 
@@ -13,9 +14,16 @@ public class Usuario {
         this.nombre = nombre;
         this.apellido = apellido;
         this.departamento = departamento;
+
+        equipos.add(new Equipo("AAA","Desc1",2000));
+        equipos.add(new Equipo("BBB","Desc2",4000));
+        equipos.add(new Equipo("CCC","Desc3",6000));
     }
 
-    @NonNull
+    public ArrayList<Equipo> getEquipos(){
+        return equipos;
+    }
+
     @Override
     public String toString() {
         return nombre +" " + apellido + "     " + departamento;
