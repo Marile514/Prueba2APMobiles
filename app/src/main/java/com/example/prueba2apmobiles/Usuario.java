@@ -1,5 +1,7 @@
 package com.example.prueba2apmobiles;
 
+import androidx.annotation.NonNull;
+
 import java.util.ArrayList;
 
 public class Usuario {
@@ -11,6 +13,12 @@ public class Usuario {
         this.nombre = nombre;
         this.apellido = apellido;
         this.departamento = departamento;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return nombre +" " + apellido + "     " + departamento;
     }
 
     public String getUsuario() {
