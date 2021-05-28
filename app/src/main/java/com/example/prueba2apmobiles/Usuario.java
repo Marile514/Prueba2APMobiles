@@ -18,6 +18,9 @@ public class Usuario implements Serializable {
         equipos.add(new Equipo("AAA","Desc1",2000));
         equipos.add(new Equipo("BBB","Desc2",4000));
         equipos.add(new Equipo("CCC","Desc3",6000));
+        equipos.add(new Equipo("DDD","Desc4", 42000));
+        equipos.add(new Equipo("EEE","Desc5", 35000));
+        equipos.add(new Equipo("FFF","Desc6", 28000));
     }
 
     public ArrayList<Equipo> getEquipos(){

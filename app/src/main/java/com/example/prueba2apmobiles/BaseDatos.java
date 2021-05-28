@@ -19,4 +19,9 @@ public class BaseDatos {
     public static ArrayList<Usuario> callUsuarios(){
         return usuarios;
     }
+
+    //Metodo para agregar equipos.
+    public static void agregarEquipos(Equipo equipo){
+        teams.add(equipo);
+    }
 }
