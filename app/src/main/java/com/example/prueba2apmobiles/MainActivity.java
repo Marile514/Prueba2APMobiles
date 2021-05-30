@@ -60,5 +60,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(c);
             }
         });
+        //Metodo para hacer long click para preguntar si desea eliminar un usuario.
+        listaUsuarios.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                Usuario b = (Usuario) parent.getItemAtPosition(position);
+                Toast.makeText(MainActivity.this, "Eliminar usuario: " +b.getUsuario() + "?", Toast.LENGTH_LONG).show();
+                return true;
+            }
+        });
     }
 }

@@ -66,4 +66,11 @@ public class Usuario implements Serializable {
     public void setDepartamento(String departamento) {
         this.departamento = departamento;
     }
+
+    /*public static void listarEquipos(String usuario){
+
+        for(int i = 0; i <= usuario.size(); i++){
+            BaseDatos.agregarEquipos(String usr, Equipo e);
+        }
+    }*/
 }
