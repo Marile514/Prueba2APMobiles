@@ -45,7 +45,8 @@ public class Activity_equipos extends AppCompatActivity {
         eliminar = findViewById(R.id.btnDelete);
         volver = findViewById(R.id.btnVolver);
 
-        teamers = new ArrayAdapter<Equipo>(Activity_equipos.this, android.R.layout.simple_list_item_1, BaseDatos.agregarEquipos(););
+        String us, e;
+        teamers = new ArrayAdapter<Equipo>(Activity_equipos.this, android.R.layout.simple_list_item_1, BaseDatos.agregarEquipoAUsuario(us, Equipo e);
         datos.setAdapter(teamers);
 
         transferenciaUsuario();
