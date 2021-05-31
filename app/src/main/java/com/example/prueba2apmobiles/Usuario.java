@@ -14,16 +14,6 @@ public class Usuario implements Serializable {
         this.nombre = nombre;
         this.apellido = apellido;
         this.departamento = departamento;
-
-        equipos.add(new Equipo("AAA","Desc1",2000));
-        equipos.add(new Equipo("BBB","Desc2",4000));
-        equipos.add(new Equipo("CCC","Desc3",6000));
-        equipos.add(new Equipo("DDD","Desc4", 42000));
-        equipos.add(new Equipo("EEE","Desc5", 35000));
-        equipos.add(new Equipo("FFF","Desc6", 28000));
-        equipos.add(new Equipo("GGG","Desc7",51000));
-        equipos.add(new Equipo("HHH","Desc8",44000));
-        equipos.add(new Equipo("III","Desc9",11000));
     }
 
     public ArrayList<Equipo> getEquipos(){
@@ -66,11 +56,4 @@ public class Usuario implements Serializable {
     public void setDepartamento(String departamento) {
         this.departamento = departamento;
     }
-
-    /*public static void listarEquipos(String usuario){
-
-        for(int i = 0; i <= usuario.size(); i++){
-            BaseDatos.agregarEquipos(String usr, Equipo e);
-        }
-    }*/
 }
