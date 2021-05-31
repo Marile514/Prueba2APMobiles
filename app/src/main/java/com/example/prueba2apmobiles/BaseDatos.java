@@ -28,8 +28,8 @@ public class BaseDatos {
         }
     }
     //Metodo para añadir usuario.
-    public static void agregarUsuario(Usuario grupoUsuario){
-        usuarios.add(grupoUsuario);
+    public static void agregarUsuario(Usuario usuario){
+        usuarios.add(usuario);
     }
 
     //Metodo para obtener la lista de los usuario.
