@@ -21,7 +21,7 @@ public class Activity_equipos extends AppCompatActivity {
     private TextView txtNombreCompl, txtDept, txtPrecioTotal;
     private EditText descrTeam, valorTeam;
     private AutoCompleteTextView serieTeam;
-    private Button agregar, eliminar, volver;
+    private Button agregar, volver;
     private ListView datos;
     private ArrayAdapter teamers;
     private String equipo, us, equip;
@@ -45,7 +45,6 @@ public class Activity_equipos extends AppCompatActivity {
         valorTeam = findViewById(R.id.etValorEquipo);
         serieTeam = findViewById(R.id.acSerie);
         agregar = findViewById(R.id.btnAdd);
-        eliminar = findViewById(R.id.btnDelete);
         volver = findViewById(R.id.btnVolver);
 
         teamers = new ArrayAdapter<Equipo>(Activity_equipos.this, android.R.layout.simple_list_item_1, BaseDatos.llamarEquipo());
