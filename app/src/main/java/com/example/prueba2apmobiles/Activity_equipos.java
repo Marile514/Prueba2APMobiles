@@ -1,7 +1,9 @@
 package com.example.prueba2apmobiles;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -22,7 +24,7 @@ public class Activity_equipos extends AppCompatActivity {
     private Button agregar, eliminar, volver;
     private ListView datos;
     private ArrayAdapter teamers;
-    private String equipo, teamUser;
+    private String equipo, us, equip;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +32,7 @@ public class Activity_equipos extends AppCompatActivity {
         setContentView(R.layout.activity_equipos);
 
         inits();
+        events();
     }
 
     private void inits(){
@@ -45,8 +48,7 @@ public class Activity_equipos extends AppCompatActivity {
         eliminar = findViewById(R.id.btnDelete);
         volver = findViewById(R.id.btnVolver);
 
-        String us, e;
-        teamers = new ArrayAdapter<Equipo>(Activity_equipos.this, android.R.layout.simple_list_item_1, BaseDatos.agregarEquipoAUsuario(us, Equipo e);
+        teamers = new ArrayAdapter<Equipo>(Activity_equipos.this, android.R.layout.simple_list_item_1, BaseDatos.llamarEquipo());
         datos.setAdapter(teamers);
 
         transferenciaUsuario();
@@ -74,11 +76,13 @@ public class Activity_equipos extends AppCompatActivity {
 
     //Método para los botones agregar, eliminar y volver.
     private void events(){
-        eliminar.setOnLongClickListener(new View.OnLongClickListener() {
+        //Realizar la funcion de boton eliminar en la listview de datos.
+        datos.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
-            public boolean onLongClick(View v) {
-                //Lógica para eliminar un equipo.
-                BaseDatos.eliminarEquipoDeUsuario(teamUser, equipo);
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                Equipo c = (Equipo) parent.getItemAtPosition(position);
+                equipo = c.getSerie();
+                alertDialogoEquipo();
                 return true;
             }
         });
@@ -89,6 +93,31 @@ public class Activity_equipos extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    private void alertDialogoEquipo(){
+        AlertDialog.Builder dialogo2 = new AlertDialog.Builder(Activity_equipos.this);
+        dialogo2.setTitle("Equipos del usuario");
+        dialogo2.setMessage("¿Desea borrar un equipo del usuario?");
+        //Implementar setButton para borrar un equipo del usuario.
+        dialogo2.setPositiveButton("Si", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //Lógica para borrar un equipo del usuario.
+                BaseDatos.eliminarEquipoDeUsuario(us, equip);
+                //Recargar el adapter de los equipos.
+                teamers = new ArrayAdapter<Equipo>(Activity_equipos.this, android.R.layout.simple_list_item_1, BaseDatos.llamarEquipo());
+                datos.setAdapter(teamers);
+            }
+        });
+        dialogo2.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        AlertDialog accion = dialogo2.create();
+        accion.show();
     }
 
 }

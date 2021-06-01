@@ -50,6 +50,11 @@ public class BaseDatos {
             }
         }
     }
+
+    //Método para obtener los equipos.
+    public static ArrayList<Equipo> llamarEquipo(){
+        return teams;
+    }
     
     //Metodo para eliminar un equipo a un usuario
     public static void eliminarEquipoDeUsuario(String us, String serie){

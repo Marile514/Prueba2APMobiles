@@ -1,6 +1,7 @@
 package com.example.prueba2apmobiles;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Equipo implements Serializable {
     private String serie, descripcion;
@@ -10,6 +11,11 @@ public class Equipo implements Serializable {
         this.serie = serie;
         this.descripcion = descripcion;
         this.valor_Equipo = valor_Equipo;
+    }
+
+    @Override
+    public String toString(){
+        return descripcion + ": " + valor_Equipo;
     }
 
     public String getSerie() {
